@@ -3,7 +3,7 @@ import { DATA } from './data.js';
 import { calcEstimate, formatMoney, formatNumber, pluralWeeks } from './estimate.js';
 import { attachForm, contactFormHtml } from './validation.js';
 
-const KEY = 'rovno-quiz-v1';
+const KEY = 'rovno:quiz-v1';
 const TOTAL = 6;
 // Площадь по умолчанию 54 м²: ползунок и поле сразу показывают одно и то же, «Далее» активна.
 const EMPTY = () => ({ housing: null, type: null, area: 54, baths: null, bathKind: null, options: [], start: null });
