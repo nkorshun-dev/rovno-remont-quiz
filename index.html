@@ -1,0 +1,265 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ремонт квартир в Минске с фиксированной сметой | Ровно</title>
+  <meta name="description" content="Ремонт квартир в Минске с фиксированной сметой и гарантией 3 года. Рассчитайте стоимость за минуту в онлайн-калькуляторе. Демо-проект для портфолио.">
+  <link rel="canonical" href="https://nkorshun-remont.netlify.app/">
+  <meta name="theme-color" content="#fbfaf8">
+  <link rel="icon" href="img/favicon.svg" type="image/svg+xml">
+
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="ru_RU">
+  <meta property="og:site_name" content="Ровно">
+  <meta property="og:title" content="Ремонт квартир в Минске с фиксированной сметой | Ровно">
+  <meta property="og:description" content="Смету не меняем после подписания договора. Гарантия 3 года. Рассчитайте ремонт за 1 минуту.">
+  <meta property="og:url" content="https://nkorshun-remont.netlify.app/">
+  <meta property="og:image" content="https://nkorshun-remont.netlify.app/img/og-image.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://images.unsplash.com" crossorigin>
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500&family=Tenor+Sans&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500&family=Tenor+Sans&display=swap" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500&family=Tenor+Sans&display=swap"></noscript>
+  <script>document.documentElement.classList.add("js")</script>
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/sections.css">
+  <link rel="modulepreload" href="js/main.js">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "HomeAndConstructionBusiness",
+    "name": "Ровно",
+    "description": "Ремонт квартир в Минске с фиксированной сметой и гарантией 3 года. Демо-проект, бизнес вымышленный.",
+    "url": "https://nkorshun-remont.netlify.app/",
+    "telephone": "+375293142765",
+    "image": "https://nkorshun-remont.netlify.app/img/og-image.jpg",
+    "address": { "@type": "PostalAddress", "streetAddress": "ул. Мясникова, 34, офис 5", "addressLocality": "Минск", "addressCountry": "BY" },
+    "openingHoursSpecification": { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"], "opens": "09:00", "closes": "19:00" },
+    "areaServed": "Минск",
+    "sameAs": ["https://instagram.com/rovno.remont", "https://t.me/rovno_remont"]
+  }
+  </script>
+</head>
+<body>
+  <a class="skip" href="#main">К содержимому</a>
+
+  <header class="header" id="top">
+    <div class="container header__in">
+      <a class="logo" href="#top" aria-label="Ровно, ремонт квартир, на главную">РОВНО</a>
+      <nav class="nav" id="nav" aria-label="Основное меню">
+        <ul class="nav__list">
+          <li><a href="#calculator">Калькулятор</a></li>
+          <li><a href="#works">Работы</a></li>
+          <li><a href="#prices">Цены</a></li>
+          <li><a href="#stages">Этапы</a></li>
+          <li><a href="#reviews">Отзывы</a></li>
+          <li><a href="#contacts">Контакты</a></li>
+        </ul>
+        <div class="nav__aside">
+          <a class="nav__phone" data-phone href="tel:+375293142765">+375 (29) 314-27-65</a>
+          <a class="arrow-link nav__cta" href="#calculator">Рассчитать <span class="arr" aria-hidden="true">→</span></a>
+        </div>
+      </nav>
+      <button class="burger" id="burger" type="button" aria-expanded="false" aria-controls="nav" aria-label="Открыть меню"><span></span></button>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero" aria-labelledby="h-hero">
+      <picture class="hero__media">
+        <source media="(max-width: 767px)" srcset="https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?auto=format&fit=crop&w=800&h=1400&q=60">
+        <img src="https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?auto=format&fit=crop&w=1920&h=1200&q=70" width="1920" height="1200" alt="Светлая гостиная с деревянной лестницей после ремонта" fetchpriority="high">
+      </picture>
+      <div class="container hero__in">
+        <h1 id="h-hero">Ремонт квартир в Минске с фиксированной сметой</h1>
+        <div class="hero__row">
+          <p class="hero__lead">Смету не меняем после подписания договора. Гарантия 3 года.</p>
+          <a class="btn btn--light" href="#calculator">Рассчитать стоимость за 1 минуту <span class="arr" aria-hidden="true">→</span></a>
+        </div>
+      </div>
+      <div class="hero__facts">
+        <ul class="container facts" id="facts"></ul>
+      </div>
+    </section>
+
+    <section class="section section--stone" id="calculator" aria-labelledby="h-calc">
+      <div class="container">
+        <header class="shead grid">
+          <p class="label">(01) Калькулятор</p>
+          <h2 id="h-calc">Сколько стоит ваш ремонт</h2>
+          <p class="shead__lead">Шесть вопросов, минута времени. Итог сразу, без звонков.</p>
+        </header>
+        <div class="quiz" id="quiz-root"><noscript><p>Для работы калькулятора включите JavaScript.</p></noscript></div>
+      </div>
+    </section>
+
+    <section class="section section--ink on-ink" id="before-after" aria-labelledby="h-ba">
+      <div class="container">
+        <header class="shead grid">
+          <p class="label">(02) До и после</p>
+          <h2 id="h-ba">Как меняются квартиры</h2>
+          <p class="shead__lead">Тяните ползунок мышью, пальцем или стрелками на клавиатуре.</p>
+        </header>
+        <div class="ba-wrap" id="ba-list"></div>
+      </div>
+    </section>
+
+    <section class="section works-sec" id="works" aria-labelledby="h-works">
+      <div class="container">
+        <header class="shead grid">
+          <p class="label">(03) Портфолио</p>
+          <h2 id="h-works">Наши объекты</h2>
+          <p class="shead__lead">Нажмите на фото, чтобы посмотреть галерею объекта.</p>
+        </header>
+      </div>
+      <div class="ribbon" id="ribbon">
+        <ul class="ribbon__track" id="portfolio-list" tabindex="0" aria-label="Объекты, листайте горизонтально"></ul>
+        <div class="container ribbon__foot">
+          <div class="ribbon__bar" aria-hidden="true"><span></span></div>
+          <div class="ribbon__ctrl">
+            <button type="button" class="arrow" data-rib="-1" aria-label="Предыдущие объекты">&#8592;</button>
+            <button type="button" class="arrow" data-rib="1" aria-label="Следующие объекты">&#8594;</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--stone" id="prices" aria-labelledby="h-prices">
+      <div class="container">
+        <header class="shead grid">
+          <p class="label">(04) Цены</p>
+          <h2 id="h-prices">Сколько стоят работы</h2>
+        </header>
+        <ul class="tiers" id="price-rows"></ul>
+        <p class="prices__note">Материалы закупаем по ценам поставщика, без наценки — чеки прикладываем.</p>
+      </div>
+    </section>
+
+    <section class="section" id="stages" aria-labelledby="h-stages">
+      <div class="container">
+        <header class="shead grid">
+          <p class="label">(05) Этапы работы</p>
+          <h2 id="h-stages">Как мы работаем</h2>
+        </header>
+        <div class="grid stages-grid">
+          <figure class="stages__photo">
+            <div class="reveal-img zoom"><img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=900&h=1100&q=70" width="900" height="1100" loading="lazy" alt="Прораб размечает чертёж планировки на столе"></div>
+            <figcaption class="label">Замер и чертёж — до начала работ</figcaption>
+          </figure>
+          <ol class="stages" id="stages-list"></ol>
+        </div>
+      </div>
+    </section>
+
+    <section class="section why-sec" id="why" aria-labelledby="h-why">
+      <div class="container">
+        <header class="shead grid">
+          <p class="label">(06) Почему мы</p>
+          <h2 id="h-why">Что вы получаете</h2>
+        </header>
+        <ul class="why" id="why-list"></ul>
+      </div>
+    </section>
+
+    <section class="section section--stone" id="reviews" aria-labelledby="h-reviews">
+      <div class="container">
+        <header class="shead grid">
+          <p class="label">(07) Отзывы</p>
+          <h2 id="h-reviews">Говорят клиенты</h2>
+        </header>
+        <div class="carousel grid" role="region" aria-roledescription="карусель" aria-label="Отзывы клиентов">
+          <ul class="carousel__track" id="reviews-track" tabindex="0" aria-label="Отзывы клиентов, листайте стрелками"></ul>
+          <div class="carousel__ctrl">
+            <button type="button" class="arrow" data-dir="-1" aria-label="Предыдущий отзыв">&#8592;</button>
+            <p class="carousel__count" aria-live="polite"></p>
+            <button type="button" class="arrow" data-dir="1" aria-label="Следующий отзыв">&#8594;</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="faq" aria-labelledby="h-faq">
+      <div class="container">
+        <header class="shead grid">
+          <p class="label">(08) Вопросы</p>
+          <h2 id="h-faq">Частые вопросы</h2>
+        </header>
+        <div class="grid"><div class="acc" id="faq-list"></div></div>
+      </div>
+    </section>
+
+    <section class="section section--ink on-ink cta" id="cta" aria-labelledby="h-cta">
+      <div class="container grid cta__in">
+        <div class="cta__text">
+          <p class="label">(09) Замер</p>
+          <h2 id="h-cta">Приедем на замер бесплатно</h2>
+          <p>Оставьте имя и телефон. Мастер приедет в удобное время, замерит и назовёт цену в тот же день.</p>
+        </div>
+        <div class="cta__form" id="cta-form"></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer" id="contacts" aria-labelledby="h-contacts">
+    <div class="container">
+      <div class="grid footer__top">
+        <div class="footer__head">
+          <p class="label">(10) Контакты</p>
+          <h2 id="h-contacts">Где нас найти</h2>
+        </div>
+        <address class="contacts__list">
+          <p><span class="label">Офис</span>г. Минск, ул. Мясникова, 34, офис 5</p>
+          <p><span class="label">Часы работы</span>Пн–Сб 9:00–19:00</p>
+          <p><span class="label">Телефон</span><a class="u-link" data-phone href="tel:+375293142765">+375 (29) 314-27-65</a></p>
+          <p><span class="label">Мессенджеры</span><a class="u-link" href="https://t.me/rovno_remont" rel="noopener noreferrer">Telegram</a> · <a class="u-link" href="viber://chat?number=%2B375293142765">Viber</a></p>
+          <p><span class="label">Instagram</span><a class="u-link" href="https://instagram.com/rovno.remont" rel="noopener noreferrer">@rovno.remont</a></p>
+        </address>
+        <div class="contacts__map">
+          <iframe title="Карта: офис на ул. Мясникова, Минск" loading="lazy" referrerpolicy="no-referrer"
+            src="https://www.openstreetmap.org/export/embed.html?bbox=27.5500%2C53.8980%2C27.5800%2C53.9120&amp;layer=mapnik&amp;marker=53.9050%2C27.5640"></iframe>
+        </div>
+      </div>
+      <div class="footer__bar">
+        <p>РОВНО · ремонт квартир в Минске</p>
+        <button type="button" class="link" data-open-privacy>Политика конфиденциальности</button>
+        <p class="footer__demo">Демо-проект для портфолио. Бизнес вымышленный.</p>
+      </div>
+    </div>
+    <p class="footer__logo" aria-hidden="true">РОВНО</p>
+  </footer>
+
+  <dialog class="modal modal--gallery on-ink" id="modal-gallery" aria-labelledby="gallery-title">
+    <div class="modal__box">
+      <button type="button" class="modal__close" data-close aria-label="Закрыть">&times;</button>
+      <h3 id="gallery-title" class="gallery__title">Галерея</h3>
+      <div class="gallery">
+        <button type="button" class="arrow gallery__prev" data-g="-1" aria-label="Предыдущее фото">&#8592;</button>
+        <img class="gallery__img" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="" width="960" height="640">
+        <button type="button" class="arrow gallery__next" data-g="1" aria-label="Следующее фото">&#8594;</button>
+      </div>
+      <div class="gallery__foot">
+        <p class="gallery__cap" aria-live="polite"></p>
+        <p class="gallery__count" aria-live="polite"></p>
+      </div>
+    </div>
+  </dialog>
+
+  <dialog class="modal" id="modal-privacy" aria-labelledby="privacy-title">
+    <div class="modal__box">
+      <button type="button" class="modal__close" data-close aria-label="Закрыть">&times;</button>
+      <h3 id="privacy-title">Политика конфиденциальности</h3>
+      <div id="privacy-text"></div>
+      <button type="button" class="btn btn--primary" data-close>Понятно <span class="arr" aria-hidden="true">→</span></button>
+    </div>
+  </dialog>
+
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>

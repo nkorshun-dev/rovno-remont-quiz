@@ -1,0 +1,46 @@
+/* Запасные шрифты подогнаны по ширине под Tenor Sans и Onest: меньше сдвигов, пока грузятся веб-шрифты. */
+@font-face { font-family: "Tenor Fallback"; src: local("Georgia"); size-adjust: 108%; }
+@font-face { font-family: "Onest Fallback"; src: local("Arial"); size-adjust: 104%; }
+
+/* «Интерьерный журнал»: только эти цвета. */
+:root {
+  --bg: #fbfaf8;          /* фон основной */
+  --stone: #ebe7e1;       /* секции-вставки «камень» */
+  --ink: #15171c;         /* тёмные секции «чернила» и текст */
+  --text: #15171c;
+  --muted: #6f6d69;
+  --muted-stone: #5f5d59; /* вторичный текст на «камне»: #6f6d69 там не проходит AA */
+  --on-ink: #f3f0ea;
+  --on-ink-muted: #a8a49d;
+  --accent: #2c47b8;      /* кобальт, точечно */
+  --accent-on-ink: #9fb0f2; /* кобальт для тёмного фона: исходный там не виден */
+  --line: rgba(21, 23, 28, 0.12);
+  --line-strong: rgba(21, 23, 28, 0.32);
+  --line-ink: rgba(243, 240, 234, 0.18);
+  --error: #b3261e;
+  --error-on-ink: #f2b8b5;
+
+  /* для совместимости со старыми именами (404.html) */
+  --accent-text: var(--accent);
+  --graphite: var(--ink);
+  --surface: var(--bg);
+
+  --font-head: "Tenor Sans", "Tenor Fallback", Georgia, serif;
+  --font-body: "Onest", "Onest Fallback", system-ui, -apple-system, "Segoe UI", sans-serif;
+
+  --s1: 0.25rem; --s2: 0.5rem; --s3: 0.75rem; --s4: 1rem;
+  --s5: 1.5rem; --s6: 2rem; --s7: 3rem; --s8: 4.5rem; --s9: 7rem;
+  --section: clamp(4.5rem, 10vw, 9rem);
+
+  --r: 2px;
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --t-slow: 0.9s;
+  --t-mid: 0.6s;
+
+  --header-h: 64px;
+  --gutter: 1rem;
+  --gap: 1rem;
+  --maxw: 1360px;
+}
+@media (min-width: 768px) { :root { --gutter: 2rem; --gap: 1.5rem; --header-h: 76px; } }
+@media (min-width: 1280px) { :root { --gutter: 3rem; --gap: 2rem; } }
