@@ -2,7 +2,7 @@
 
 Адаптивный сайт ремонтной компании с квиз-калькулятором стоимости. Демо-проект для портфолио: бизнес вымышленный, формы данные никуда не отправляют.
 
-Демо: https://nkorshun-remont.netlify.app
+Демо: https://nkorshun.dev/rovno/
 
 ![Первый экран](img/screenshots/hero.jpg)
 
@@ -74,4 +74,4 @@ npx serve .
 
 1. Загрузите папку в репозиторий (GitHub) и подключите его в Netlify или перетащите папку на app.netlify.com/drop.
 2. Build command пустая, publish directory — `.` (уже указано в `netlify.toml`).
-3. Замените `https://nkorshun-remont.netlify.app/` в `index.html` (canonical, og:url, og:image, JSON-LD) на свой адрес.
+3. Замените `https://nkorshun.dev/rovno/` в `index.html` (canonical, og:url, og:image, JSON-LD) на свой адрес.
