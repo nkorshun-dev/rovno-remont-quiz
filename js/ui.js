@@ -82,27 +82,66 @@ export function initCarousel(root) {
   update();
 }
 
-/** Лента портфолио: скролл колесом, тачем и стрелками, snap, полоса прогресса. */
+/**
+ * Лента портфолио.
+ * Десктоп (≥1024, мышь, без reduced-motion): секция закреплена (sticky), лента едет вбок
+ * на столько же пикселей, на сколько прокручена страница внутри секции. Колесо не перехватываем.
+ * Тач, планшет, reduced-motion: обычная лента со свайпом и snap.
+ */
 export function initRibbon(root) {
   const track = root.querySelector('.ribbon__track');
+  const pin = root.querySelector('.ribbon__pin');
   const items = [...track.children];
   const bar = root.querySelector('.ribbon__bar span');
   const prev = root.querySelector('[data-rib="-1"]');
   const nextB = root.querySelector('[data-rib="1"]');
+  const header = document.querySelector('.header');
+  const mq = matchMedia('(min-width: 1024px) and (pointer: fine) and (prefers-reduced-motion: no-preference)');
   const smooth = () => (matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth');
+  const clamp = (v, a, b) => Math.min(Math.max(v, a), b);
+  let pinned = false, path = 0, pinTop = 0, raf = 0;
+
   const pos = (li) => li.offsetLeft - items[0].offsetLeft;
-  const max = () => track.scrollWidth - track.clientWidth;
-  const index = () => items.reduce((best, li, k) => (Math.abs(pos(li) - track.scrollLeft) < Math.abs(pos(items[best]) - track.scrollLeft) ? k : best), 0);
-  const to = (i) => track.scrollTo({ left: pos(items[Math.min(Math.max(i, 0), items.length - 1)]), behavior: smooth() });
+  const max = () => (pinned ? path : track.scrollWidth - track.clientWidth);
+  // Текущий сдвиг ленты. Позицию секции берём каждый раз: квиз выше меняет высоту страницы.
+  const cur = () => (pinned ? clamp(pinTop - root.getBoundingClientRect().top, 0, path) : track.scrollLeft);
+  const go = (x) => {
+    if (!pinned) return track.scrollTo({ left: x, behavior: smooth() });
+    const start = root.getBoundingClientRect().top + window.scrollY - pinTop;
+    window.scrollTo({ top: start + clamp(x, 0, path) }); // 1 px прокрутки = 1 px сдвига
+  };
+  const index = () => { const x = cur(); return items.reduce((best, li, k) => (Math.abs(pos(li) - x) < Math.abs(pos(items[best]) - x) ? k : best), 0); };
+  const to = (i) => go(pos(items[clamp(i, 0, items.length - 1)]));
 
   const update = () => {
-    const m = max();
-    const w = m > 0 ? (track.clientWidth / track.scrollWidth) * 100 : 100;
-    const p = m > 0 ? track.scrollLeft / m : 0;
+    raf = 0;
+    const m = max(), x = cur();
+    if (pinned) track.style.transform = `translate3d(${-x}px, 0, 0)`;
+    const w = m > 0 ? (track.clientWidth / (track.clientWidth + m)) * 100 : 100;
     bar.style.width = `${w}%`;
-    bar.style.transform = `translateX(${p * (100 / w - 1) * 100}%)`;
-    prev.disabled = track.scrollLeft <= 2;
-    nextB.disabled = track.scrollLeft >= m - 2;
+    bar.style.transform = `translateX(${(m > 0 ? x / m : 0) * (100 / w - 1) * 100}%)`;
+    prev.disabled = x <= 2;
+    nextB.disabled = x >= m - 2;
+  };
+  const schedule = () => { if (!raf) raf = requestAnimationFrame(update); };
+
+  const measure = () => {
+    root.classList.toggle('is-pinned', mq.matches); // класс уменьшает фото под высоту окна — мерим уже с ним
+    pinned = false;
+    if (mq.matches) {
+      const last = items[items.length - 1];
+      path = Math.max(0, last.offsetLeft + last.offsetWidth + parseFloat(getComputedStyle(track).paddingRight) - track.clientWidth);
+      const free = window.innerHeight - header.offsetHeight - pin.offsetHeight;
+      // Закрепляем, только если лента целиком влезает под шапку и есть куда ехать
+      if (path > 0 && free >= 16) {
+        pinTop = header.offsetHeight + free / 2;
+        root.style.setProperty('--pin-top', `${pinTop}px`);
+        root.style.height = `${pin.offsetHeight + path}px`;
+        pinned = true;
+      } else root.classList.remove('is-pinned');
+    }
+    if (!pinned) { root.style.height = ''; track.style.transform = ''; }
+    update();
   };
 
   prev.addEventListener('click', () => to(index() - 1));
@@ -111,20 +150,23 @@ export function initRibbon(root) {
     if (e.key === 'ArrowRight') { e.preventDefault(); to(index() + 1); }
     if (e.key === 'ArrowLeft') { e.preventDefault(); to(index() - 1); }
   });
-  // Колесо мыши: вертикальный жест листает ленту, у края — снова страницу
-  let lock = 0;
-  track.addEventListener('wheel', (e) => {
-    if (Math.abs(e.deltaY) <= Math.abs(e.deltaX)) return;
-    const dir = Math.sign(e.deltaY);
-    if ((dir < 0 && track.scrollLeft <= 2) || (dir > 0 && track.scrollLeft >= max() - 2)) return;
-    e.preventDefault();
-    if (Date.now() < lock) return;
-    lock = Date.now() + 450;
-    to(index() + dir);
-  }, { passive: false });
-  track.addEventListener('scroll', () => requestAnimationFrame(update), { passive: true });
-  window.addEventListener('resize', update);
-  update();
+  // Tab по карточкам: в закреплённом режиме браузер не видит сдвиг — докручиваем страницу сами
+  track.addEventListener('focusin', (e) => {
+    const li = e.target.closest('.work');
+    if (!pinned || !li) return;
+    requestAnimationFrame(() => {
+      const r = li.getBoundingClientRect(), t = pin.getBoundingClientRect(); // pin не сдвигается, в отличие от track
+      const padL = parseFloat(getComputedStyle(track).paddingLeft);
+      if (r.left < t.left + padL - 1 || r.right > t.right - padL + 1) go(pos(li));
+    });
+  });
+  track.addEventListener('scroll', schedule, { passive: true });
+  window.addEventListener('scroll', () => pinned && schedule(), { passive: true });
+  window.addEventListener('resize', measure);
+  mq.addEventListener('change', measure);
+  track.addEventListener('load', measure, true); // load не всплывает — ловим на погружении
+  document.fonts?.ready.then(measure);
+  measure();
 }
 
 /** Модалки на <dialog>: фокус внутри, Esc, клик по фону. */

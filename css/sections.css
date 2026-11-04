@@ -72,7 +72,7 @@
 }
 
 /* ---------- Портфолио: горизонтальная лента ---------- */
-.works-sec { overflow: hidden; }
+.works-sec { overflow-x: clip; } /* clip, а не hidden: иначе не работает sticky у закреплённой ленты */
 .ribbon { --pad: max(var(--gutter), calc((100vw - var(--maxw)) / 2 + var(--gutter))); }
 .ribbon__track {
   display: flex; gap: clamp(1rem, 2.5vw, 2.5rem); overflow-x: auto; scroll-snap-type: x mandatory; scroll-padding-inline: var(--pad);
@@ -92,6 +92,11 @@
 .ribbon__bar { flex: 1; height: 1px; background: var(--line-strong); position: relative; }
 .ribbon__bar span { position: absolute; left: 0; top: -1px; height: 3px; width: 20%; background: var(--ink); transition: transform 0.2s linear; }
 .ribbon__ctrl { display: flex; gap: var(--s3); }
+/* Десктоп: лента закреплена, сдвигается от вертикальной прокрутки (класс ставит initRibbon) */
+.ribbon.is-pinned .ribbon__pin { position: sticky; top: var(--pin-top, 0px); }
+.ribbon.is-pinned .ribbon__track { overflow: visible; scroll-snap-type: none; will-change: transform; }
+.ribbon.is-pinned .work__img { height: min(clamp(340px, 52vw, 600px), calc(100vh - 320px)); }
+.ribbon.is-pinned .work:nth-child(even) .work__img { height: min(clamp(300px, 44vw, 500px), calc(100vh - 400px)); }
 
 /* ---------- Цены: три колонки с вертикальными линиями ---------- */
 .tiers { display: grid; border-top: 1px solid var(--ink); }

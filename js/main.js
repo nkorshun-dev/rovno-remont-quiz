@@ -79,7 +79,11 @@ function render() {
 
   $('#cta-form').innerHTML = contactFormHtml('cta', { button: 'Вызвать мастера на замер', light: true });
 
-  document.querySelectorAll('[data-phone]').forEach((a) => { a.href = c.phoneHref; a.textContent = c.phone; });
+  // Телефон декоративный (демо): только текст, без tel:
+  document.querySelectorAll('[data-phone]').forEach((el) => {
+    el.textContent = c.phone;
+    el.setAttribute('aria-label', `Телефон ${c.phone} (в демо не активно)`);
+  });
 }
 
 // Переключатель объектов «01 02 03» над слайдером до/после

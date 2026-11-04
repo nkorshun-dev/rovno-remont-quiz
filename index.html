@@ -63,7 +63,7 @@
           <li><a href="#contacts">Контакты</a></li>
         </ul>
         <div class="nav__aside">
-          <a class="nav__phone" data-phone href="tel:+375293142765">+375 (29) 314-27-65</a>
+          <span class="nav__phone demo-link" data-phone aria-label="Телефон +375 (29) 314-27-65 (в демо не активно)" title="Демо-проект: ссылка не активна">+375 (29) 314-27-65</span>
           <a class="arrow-link nav__cta" href="#calculator">Рассчитать <span class="arr" aria-hidden="true">→</span></a>
         </div>
       </nav>
@@ -120,12 +120,14 @@
         </header>
       </div>
       <div class="ribbon" id="ribbon">
-        <ul class="ribbon__track" id="portfolio-list" tabindex="0" aria-label="Объекты, листайте горизонтально"></ul>
-        <div class="container ribbon__foot">
-          <div class="ribbon__bar" aria-hidden="true"><span></span></div>
-          <div class="ribbon__ctrl">
-            <button type="button" class="arrow" data-rib="-1" aria-label="Предыдущие объекты">&#8592;</button>
-            <button type="button" class="arrow" data-rib="1" aria-label="Следующие объекты">&#8594;</button>
+        <div class="ribbon__pin">
+          <ul class="ribbon__track" id="portfolio-list" tabindex="0" aria-label="Объекты, листайте горизонтально"></ul>
+          <div class="container ribbon__foot">
+            <div class="ribbon__bar" aria-hidden="true"><span></span></div>
+            <div class="ribbon__ctrl">
+              <button type="button" class="arrow" data-rib="-1" aria-label="Предыдущие объекты">&#8592;</button>
+              <button type="button" class="arrow" data-rib="1" aria-label="Следующие объекты">&#8594;</button>
+            </div>
           </div>
         </div>
       </div>
@@ -217,9 +219,9 @@
         <address class="contacts__list">
           <p><span class="label">Офис</span>г. Минск, ул. Мясникова, 34, офис 5</p>
           <p><span class="label">Часы работы</span>Пн–Сб 9:00–19:00</p>
-          <p><span class="label">Телефон</span><a class="u-link" data-phone href="tel:+375293142765">+375 (29) 314-27-65</a></p>
-          <p><span class="label">Мессенджеры</span><a class="u-link" href="https://t.me/rovno_remont" rel="noopener noreferrer">Telegram</a> · <a class="u-link" href="viber://chat?number=%2B375293142765">Viber</a></p>
-          <p><span class="label">Instagram</span><a class="u-link" href="https://instagram.com/rovno.remont" rel="noopener noreferrer">@rovno.remont</a></p>
+          <p><span class="label">Телефон</span><span class="u-link demo-link" data-phone aria-label="Телефон +375 (29) 314-27-65 (в демо не активно)" title="Демо-проект: ссылка не активна">+375 (29) 314-27-65</span></p>
+          <p><span class="label">Мессенджеры</span><span class="u-link demo-link" aria-label="Telegram (в демо не активно)" title="Демо-проект: ссылка не активна">Telegram</span> · <span class="u-link demo-link" aria-label="Viber (в демо не активно)" title="Демо-проект: ссылка не активна">Viber</span></p>
+          <p><span class="label">Instagram</span><span class="u-link demo-link" aria-label="Instagram @rovno.remont (в демо не активно)" title="Демо-проект: ссылка не активна">@rovno.remont</span></p>
         </address>
         <div class="contacts__map">
           <iframe title="Карта: офис на ул. Мясникова, Минск" loading="lazy" referrerpolicy="no-referrer"

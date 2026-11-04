@@ -37,6 +37,9 @@
   transform: scaleX(0); transform-origin: left; transition: transform var(--t-mid) var(--ease);
 }
 .u-link:hover::after, .arrow-link:hover::after { transform: scaleX(1); }
+/* Декоративные контакты демо: выглядят как ссылки, но неинтерактивны */
+.demo-link { cursor: default; }
+.demo-link.u-link::after { content: none; }
 .arrow-link { display: inline-flex; align-items: center; gap: 0.5rem; min-height: 44px; }
 .arrow-link::after { bottom: 10px; }
 

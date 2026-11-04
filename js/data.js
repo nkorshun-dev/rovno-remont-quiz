@@ -10,13 +10,12 @@ const I = {
 export const DATA = {
   company: {
     name: 'РОВНО',
+    // Контакты в демо декоративные: только текст, без tel:/t.me/viber:/instagram-ссылок
     phone: '+375 (29) 314-27-65',
-    phoneHref: 'tel:+375293142765',
     address: 'г. Минск, ул. Мясникова, 34, офис 5',
     hours: 'Пн–Сб 9:00–19:00',
-    telegram: 'https://t.me/rovno_remont',
-    viber: 'viber://chat?number=%2B375293142765',
-    instagram: 'https://instagram.com/rovno.remont',
+    telegram: 'Telegram',
+    viber: 'Viber',
     instagramName: '@rovno.remont',
   },
 
@@ -118,8 +117,8 @@ export const DATA = {
 
   beforeAfter: [
     { id: 'b1', district: 'Уручье', area: 63, type: 'Капитальный', term: '9 недель', cost: 18460, before: u('1517581177682-a085bb7ffb15', 1600, 1000), after: u('1600210492486-724fe5c67fb0', 1600, 1000) },
-    { id: 'b2', district: 'Лошица', area: 74, type: 'Дизайнерский', term: '16 недель', cost: 31870, before: u('1523413363574-c30aa1c2a516', 1600, 1000), after: u('1615529182904-14819c35db37', 1600, 1000) },
-    { id: 'b3', district: 'Малиновка', area: 56, type: 'Капитальный', term: '10 недель', cost: 14260, before: u('1581858726788-75bc0f6a952d', 1600, 1000), after: u('1583847268964-b28dc8f51f92', 1600, 1000) },
+    { id: 'b2', district: 'Лошица', area: 74, type: 'Дизайнерский', term: '16 недель', cost: 31870, before: 'img/ba-02-before.jpg', after: 'img/ba-02-after.jpg' }, // гостиная; источники фото — PROJECT.md
+    { id: 'b3', district: 'Малиновка', area: 56, type: 'Капитальный', term: '10 недель', cost: 14260, before: 'img/ba-03-before.jpg', after: 'img/ba-03-after.jpg' }, // кухня
   ],
 
   reviews: [
