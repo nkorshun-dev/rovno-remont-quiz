@@ -74,3 +74,6 @@ address { font-style: normal; }
   *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
   .js .reveal, .js .reveal-img { opacity: 1; transform: none; clip-path: none; }
 }
+
+/* Защита картинок: без перетаскивания и без меню «сохранить» при долгом нажатии */
+img { -webkit-user-drag: none; user-select: none; -webkit-touch-callout: none; }
