@@ -18,12 +18,10 @@
   <meta property="og:image" content="https://nkorshun.dev/rovno/img/og-image.jpg">
   <meta name="twitter:card" content="summary_large_image">
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="preconnect" href="https://images.unsplash.com" crossorigin>
-  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500&family=Tenor+Sans&display=swap">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500&family=Tenor+Sans&display=swap" media="print" onload="this.media='all'">
-  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500&family=Tenor+Sans&display=swap"></noscript>
+  <link rel="preload" as="font" type="font/woff2" href="fonts/onest-400-cyrillic.woff2" crossorigin>
+  <link rel="preload" as="font" type="font/woff2" href="fonts/tenor-sans-400-cyrillic.woff2" crossorigin>
+  <link rel="preload" as="image" type="image/avif" media="(max-width: 767px)" imagesrcset="img/hero-m-800.avif 800w, img/hero-m-1200.avif 1200w" imagesizes="100vw" fetchpriority="high">
+  <link rel="preload" as="image" type="image/avif" media="(min-width: 768px)" imagesrcset="img/hero-640.avif 640w, img/hero-1024.avif 1024w, img/hero-1600.avif 1600w, img/hero-2400.avif 2400w" imagesizes="100vw" fetchpriority="high">
   <script>document.documentElement.classList.add("js")</script>
   <link rel="stylesheet" href="css/variables.css">
   <link rel="stylesheet" href="css/base.css">
@@ -74,8 +72,11 @@
   <main id="main">
     <section class="hero" aria-labelledby="h-hero">
       <picture class="hero__media">
-        <source media="(max-width: 767px)" srcset="https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?auto=format&fit=crop&w=800&h=1400&q=60">
-        <img src="https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?auto=format&fit=crop&w=1920&h=1200&q=70" width="1920" height="1200" alt="Светлая гостиная с деревянной лестницей после ремонта" fetchpriority="high">
+        <source media="(max-width: 767px)" type="image/avif" srcset="img/hero-m-800.avif 800w, img/hero-m-1200.avif 1200w" sizes="100vw">
+        <source media="(max-width: 767px)" type="image/webp" srcset="img/hero-m-800.webp 800w, img/hero-m-1200.webp 1200w" sizes="100vw">
+        <source type="image/avif" srcset="img/hero-640.avif 640w, img/hero-1024.avif 1024w, img/hero-1600.avif 1600w, img/hero-2400.avif 2400w" sizes="100vw">
+        <source type="image/webp" srcset="img/hero-640.webp 640w, img/hero-1024.webp 1024w, img/hero-1600.webp 1600w, img/hero-2400.webp 2400w" sizes="100vw">
+        <img src="img/hero-1600.webp" width="1920" height="1200" alt="Светлая гостиная с деревянной лестницей после ремонта" fetchpriority="high" decoding="async">
       </picture>
       <div class="container hero__in">
         <h1 id="h-hero">Ремонт квартир в Минске с фиксированной сметой</h1>
@@ -85,7 +86,8 @@
         </div>
       </div>
       <div class="hero__facts">
-        <ul class="container facts" id="facts"></ul>
+        <!-- Первый экран заполнен до JS; render() синхронизирует факты с DATA.facts. -->
+        <ul class="container facts" id="facts"><li><strong>2016</strong> год основания</li><li><strong>412</strong> квартир сдано</li><li><strong>3 года</strong> гарантия</li><li><strong>24 часа</strong> готовим смету</li></ul>
       </div>
     </section>
 

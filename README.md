@@ -34,7 +34,15 @@ Lighthouse (локально): мобильный — производитель
 
 ## Стек
 
-HTML5, CSS3, ванильный JavaScript (ES-модули). Без сборки и зависимостей. Фото — Unsplash по прямым ссылкам.
+HTML5, CSS3, ванильный JavaScript (ES-модули). Без сборки и зависимостей. Hero — локальные AVIF/WebP из Unsplash, остальные фото — локальные и по прямым ссылкам Unsplash.
+
+## Локальные ресурсы первого экрана
+
+Hero хранится в `img/hero-*.avif` и `img/hero-*.webp`: responsive srcset и preload, отдельный мобильный crop `hero-m-*`. H1 и hero показываются без ожидания JS/reveal; факты первого экрана уже есть в HTML.
+
+Шрифты Tenor Sans 400 и Onest 400/500 загружаются из `fonts/*.woff2` с `font-display: swap`; кириллические файлы предзагружаются на главной и 404. Несмотря на имя `onest-400-*`, все три файла Onest — variable с осью `wght 100–900`, поэтому объявления 400 и 500 корректны. Tenor Sans — статический 400 и объявлен только как 400. Проверка бинарных таблиц: [font-axes.txt](../.qa-codex-continuation/font-axes.txt).
+
+Лицензии SIL OFL 1.1: [Onest](fonts/OFL-Onest.txt), [Tenor Sans](fonts/OFL-TenorSans.txt); оригиналы: [google/fonts main ofl/onest](https://github.com/google/fonts/blob/main/ofl/onest/OFL.txt), [ofl/tenorsans](https://github.com/google/fonts/blob/main/ofl/tenorsans/OFL.txt).
 
 ## Структура
 
